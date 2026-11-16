@@ -86,8 +86,8 @@ the one that can actually provide a timeline.
 omarchy plugin remove aashutosh31.media
 ```
 
-This disables the plugin and removes its folder. It does not modify anything
-outside the plugin directory, and it does not touch your configuration files.
+This disables the plugin and removes its folder. It does not touch your
+dotfiles or any other settings outside the plugin itself.
 
 ## License
 
