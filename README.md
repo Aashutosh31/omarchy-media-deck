@@ -15,6 +15,10 @@ that exposes a normal MPRIS interface.
 - One click opens a media card with artwork, title, artist and album
 - Previous, play/pause, next and shuffle controls
 - Draggable seek bar with elapsed and total time
+- Volume slider and mute control
+- Mouse-wheel volume adjustment on the bar pill
+- Repeat mode cycling when supported by the player
+- Hover tooltip with track and player information
 - Player picker when more than one player is available
 - Prefers a playing source that reports a real timeline
 - Slider is disabled when the current player cannot seek
@@ -36,15 +40,8 @@ omarchy plugin add https://github.com/Aashutosh31/omarchy-media-deck.git --enabl
 The command asks where to place the widget. Choosing `center` places it beside
 the clock, which is how it is designed to look.
 
-Manual alternative:
-
-```bash
-git clone https://github.com/Aashutosh31/omarchy-media-deck.git \
-  ~/.config/omarchy/plugins/aashutosh31.media
-omarchy plugin enable aashutosh31.media center
-```
-
-The folder name must match the plugin id, `aashutosh31.media`.
+Media metadata is rendered as plain text; title, artist and album strings are
+not interpreted as HTML or rich text.
 
 ## Use
 
@@ -53,6 +50,7 @@ The folder name must match the plugin id, `aashutosh31.media`.
 | Left click the pill | Open or close the media card |
 | Right click the pill | Play / pause |
 | Middle click the pill | Next track |
+| Scroll over the pill | Adjust player volume |
 | Drag the progress bar | Seek in the current track |
 | Click a player row | Switch to that player |
 
