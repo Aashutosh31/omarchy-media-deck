@@ -7,6 +7,8 @@ It is a single `bar-widget` plugin built on the standard
 [Quickshell](https://quickshell.org/) MPRIS service, so it works with any player
 that exposes a normal MPRIS interface.
 
+![Media Deck preview](preview.png)
+
 ## Features
 
 - Compact pill in the bar showing play state and the track title
