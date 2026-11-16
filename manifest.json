@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "aashutosh31.media",
+  "name": "Media Deck",
+  "version": "1.0.0",
+  "author": "Aashutosh Bairagi",
+  "license": "MIT",
+  "description": "Now-playing pill for the Omarchy bar with artwork, transport controls and a seekable progress bar.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Media Deck",
+    "description": "Now-playing pill with artwork, transport controls and seeking",
+    "category": "Media",
+    "allowMultiple": false,
+    "defaultSection": "center"
+  }
+}
