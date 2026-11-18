@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "aashutosh31.media",
   "name": "Media Deck",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Aashutosh Bairagi",
   "license": "MIT",
   "description": "Now-playing pill for the Omarchy bar with artwork, transport controls and a seekable progress bar.",
