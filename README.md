@@ -12,8 +12,7 @@ that exposes a normal MPRIS interface.
 ## Features
 
 - Compact pill in the bar showing play state and the track title
-- One click opens a media card with local raster artwork, title, artist and
-  album
+- One click opens a media card with title, artist and album
 - Previous, play/pause, next and shuffle controls
 - Draggable seek bar with elapsed and total time
 - Volume slider and mute control
@@ -46,10 +45,10 @@ not interpreted as HTML or rich text. Displayed metadata is capped at 256
 characters per field (player labels at 80) to bound UI work from malformed
 player metadata.
 
-Artwork URLs are treated as untrusted input. The widget only loads local
-`file:///` files with recognized raster extensions and URLs up to 4096
-characters; HTTP(S), `data:`, SVG, and other schemes are ignored so MPRIS
-metadata cannot make the shell fetch remote resources or parse vector artwork.
+Artwork is intentionally not loaded from MPRIS. Even local paths can refer to
+blocking special files, and checking a path before opening it would leave a
+race. The widget uses a music-note cover placeholder instead; no player-
+controlled URL or filesystem path reaches Qt Quick's image loader.
 
 ## Use
 
@@ -87,9 +86,8 @@ the one that can actually provide a timeline.
   rather than showing a slider that would not do anything.
 - Position and length are read in seconds, matching Quickshell's
   `MprisPlayer` contract.
-- Remote and embedded `data:` cover art is intentionally not loaded. Players
-  that only provide those formats show the music-note fallback instead;
-  playback controls and timeline support are unaffected.
+- Cover art is not displayed. Playback controls and timeline support are
+  unaffected.
 
 ## Removal
 
