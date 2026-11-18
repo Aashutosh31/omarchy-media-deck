@@ -12,8 +12,8 @@ that exposes a normal MPRIS interface.
 ## Features
 
 - Compact pill in the bar showing play state and the track title
-- One click opens a media card with safe local/embedded artwork, title, artist
-  and album
+- One click opens a media card with local raster artwork, title, artist and
+  album
 - Previous, play/pause, next and shuffle controls
 - Draggable seek bar with elapsed and total time
 - Volume slider and mute control
@@ -42,12 +42,14 @@ The command asks where to place the widget. Choosing `center` places it beside
 the clock, which is how it is designed to look.
 
 Media metadata is rendered as plain text; title, artist and album strings are
-not interpreted as HTML or rich text.
+not interpreted as HTML or rich text. Displayed metadata is capped at 256
+characters per field (player labels at 80) to bound UI work from malformed
+player metadata.
 
 Artwork URLs are treated as untrusted input. The widget only loads local
-`file:///` URLs and bounded base64 raster `data:` URLs; HTTP(S), SVG data URLs,
-and other schemes are ignored to prevent MPRIS metadata from causing network
-requests through the desktop shell.
+`file:///` files with recognized raster extensions and URLs up to 4096
+characters; HTTP(S), `data:`, SVG, and other schemes are ignored so MPRIS
+metadata cannot make the shell fetch remote resources or parse vector artwork.
 
 ## Use
 
@@ -85,9 +87,9 @@ the one that can actually provide a timeline.
   rather than showing a slider that would not do anything.
 - Position and length are read in seconds, matching Quickshell's
   `MprisPlayer` contract.
-- Remote cover art is intentionally not loaded. Players that only provide
-  HTTP(S) artwork URLs show the music-note fallback instead; playback controls
-  and timeline support are unaffected.
+- Remote and embedded `data:` cover art is intentionally not loaded. Players
+  that only provide those formats show the music-note fallback instead;
+  playback controls and timeline support are unaffected.
 
 ## Removal
 
